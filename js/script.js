@@ -76,7 +76,6 @@ const initApp = async () => {
     renderIndex();
     
         headerObj.headerLogoLink.addEventListener('click', renderIndex);
-        
         headerObj.headerBtn.addEventListener('click', () => {
             allSectionUnmount();   
             headerObj.updateHeaderTitle('Новая категория');
@@ -86,7 +85,7 @@ const initApp = async () => {
 
         });
 
-    categoryObj.categoryList.addEventListener('click', async ({ target }) => {
+        categoryObj.categoryList.addEventListener('click', async ({ target }) => {
         const categoryItem = target.closest('.category__item');
         
 
@@ -118,11 +117,11 @@ const initApp = async () => {
                 const dataCards = await fetchCards(categoryItem.dataset.id);
                 allSectionUnmount();
                 headerObj.updateHeaderTitle(dataCards.title);
-                // shuffle();
                 pairsObj.mount(dataCards);
             }
     });
 
-        pairsObj.buttonReturn.addEventListener('click', renderIndex);    
+        pairsObj.buttonReturn.addEventListener('click', renderIndex);   
+        editCategoryObj.btnCancel.addEventListener('click', renderIndex );
 };
 initApp();
